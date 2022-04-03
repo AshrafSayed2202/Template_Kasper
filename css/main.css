@@ -1,0 +1,43 @@
+/* Global Rules */
+*{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    font-family: 'Open Sans', sans-serif;
+}
+/*/Global Rules */
+/* Components */
+.container{
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+@media (min-width=768px) {
+    .container{
+        width: 750px;
+    }
+}
+@media (min-width=991px) {
+    .container{
+        width: 970px;
+    }
+}
+@media (min-width=1200px) {
+    .container{
+        width: 1170px;
+    }
+}
+/*/Components */
+/* Vars */
+:root{
+    --main-color:black;
+}
+/*/Vars */
