@@ -9,29 +9,52 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="css\all.min.css" type="css/text">
+    <link rel="stylesheet" href="css\all.min.css">
     <!-- Normalize -->
-    <link rel="stylesheet" href="css\normalize.css" type="css/text">
+    <link rel="stylesheet" href="css\normalize.css">
     <!-- Main Css -->
-    <link rel="stylesheet" href="css\main.css" type="css/text">
-    <title>Kasper | </title>
+    <link rel="stylesheet" href="css\main.css">
+    <title>Kasper | We Make Art</title>
+    <link rel="icon" href="https://github.com/fluidicon.png">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="logo">
-                <img src="media\logo.png" alt="">
+    <div class="landing" id="landing">
+        <header>
+            <div class="container">
+                <div class="logo">
+                    <img src="media\logo.png" alt="">
+                </div>
+                <i class="fa-solid fa-bars" id="mobile-menu-icon"></i>
+                <nav>
+                    <ul class="navs">
+                        <li class="active"><a href="#landing">home</a></li>
+                        <li><a href="#service">services</a></li>
+                        <li><a href="#portfolio">portfolio</a></li>
+                        <li><a href="#about">about</a></li>
+                        <li><a href="#pricing">pricing</a></li>
+                        <li><a href="#contact">contact</a></li>
+                        <li><i class="fa-solid fa-xmark" id="close-mobile-menu"></i></li>
+                    </ul>
+                </nav>
+                <span class="search-icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </span>
             </div>
-            <nav>
-                <ul class="navs">
-                    <li><a href=""></a></li>
-                    <li><a href=""></a></li>
-                    <li><a href=""></a></li>
-                    <li><a href=""></a></li>
-                    <li><a href=""></a></li>
-                </ul>
-            </nav>
+        </header>
+        <i class="fa-solid fa-angle-left change-background left-arrow"></i>
+        <i class="fa-solid fa-angle-right change-background right-arrow"></i>
+        <div class="landing-text">
+            <div class="text-box">
+                <h1>hello world!<br>we are kasper,we make art.</h1>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil perspiciatis aperiam sed. Itaque aliquid explicabo possimus harum soluta. Soluta similique tenetur beatae nisi reiciendis maxime suscipit nihil assumenda, consequatur incidunt.</p>
+            </div>
         </div>
-    </header>
+        <span class="background-dots">
+            <span></span>
+            <span class="active-dot"></span>
+            <span></span>
+        </span>
+    </div>
 </body>
+<script src="JS\main.js"></script>
 </html>
