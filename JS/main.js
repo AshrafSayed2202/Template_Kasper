@@ -31,7 +31,7 @@ onscroll = function(){
         }
     }
     window.scrollY >= sections[0].offsetHeight * 0.85? scrollTop.style.right = "4%" : scrollTop.style.right = "-30%";
-    window.scrollY >= sections[0].offsetHeight * 0.75? fixedHeader.style.backgroundColor = "#666666cc" : fixedHeader.style.backgroundColor = "";
+    window.scrollY >= sections[0].offsetHeight * 0.75? fixedHeader.style.backgroundImage = "linear-gradient(#666666, transparent)" : fixedHeader.style.backgroundImage = "";
 }
 for(let i = 0;i < navList.length;i++){
     navList[i].onclick = function(){
@@ -65,6 +65,10 @@ function showImg(e){
     imgs[indexValue-1].style.display = 'block';
     landingDots[indexValue-1].classList.add('active-dot');
 }
+setInterval(function(){
+indexValue += 1;
+showImg(indexValue)
+},5000)
 // show menu in mobile 
 burgerIcon.onclick = function(){
     // menuContent.style.top = "-100%"?menuContent.style.top = "14 %":menuContent.style.top = "-100%";
