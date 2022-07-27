@@ -31,7 +31,7 @@ onscroll = function(){
         }
     }
     window.scrollY >= sections[0].offsetHeight * 0.85? scrollTop.style.right = "4%" : scrollTop.style.right = "-30%";
-    window.scrollY >= sections[0].offsetHeight * 0.75? fixedHeader.style.backgroundImage = "linear-gradient(#666666, transparent)" : fixedHeader.style.backgroundImage = "";
+    window.scrollY >= sections[0].offsetHeight * 0.75? fixedHeader.style.backgroundImage = "linear-gradient(#666666cc 25%, transparent)" : fixedHeader.style.backgroundImage = "";
 }
 for(let i = 0;i < navList.length;i++){
     navList[i].onclick = function(){

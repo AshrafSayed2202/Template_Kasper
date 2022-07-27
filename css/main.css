@@ -107,10 +107,20 @@ section{
 .swipe .backgrounds{
     width: 100%;
     height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .swipe .backgrounds img{
     width: 100%;
     height: 100%;
+    background-size: cover;
+}
+@media (max-width:1400px) {
+    .swipe .backgrounds img{
+        width: -moz-fit-content;
+        width: fit-content;
+    }
 }
 
 .fixed-header{
