@@ -19,6 +19,13 @@
 </head>
 <body>
     <section class="landing" data-nav="home">
+        <div class="swipe">
+            <div class="backgrounds">
+                <img src="media/landing1.jpg" alt="">
+                <img src="media/landing2.jpg" alt="">
+                <img src="media/landing3.jpg" alt="">
+            </div>
+        </div>
         <div class="fixed-header">
             <header>
                 <div class="logo">
@@ -33,8 +40,8 @@
                 </span>
             </header>
         </div>
-        <i class="fa-solid fa-angle-left change-background left-arrow"></i>
-        <i class="fa-solid fa-angle-right change-background right-arrow"></i>
+        <i onclick="sideSlide(-1)" class="fa-solid fa-angle-left change-background left-arrow"></i>
+        <i onclick="sideSlide(1)" class="fa-solid fa-angle-right change-background right-arrow"></i>
         <div class="landing-text">
             <div class="text-box">
                 <h1>hello world!<br>we are kasper,we make art.</h1>
@@ -42,9 +49,9 @@
             </div>
         </div>
         <span class="background-dots">
-            <span></span>
-            <span class="active-dot"></span>
-            <span></span>
+            <span onclick="btnSlide(1)" class="active-dot"></span>
+            <span onclick="btnSlide(2)"></span>
+            <span onclick="btnSlide(3)"></span>
         </span>
     </section>
     <section class="services" data-nav="services">

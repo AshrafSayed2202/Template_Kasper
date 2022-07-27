@@ -48,15 +48,23 @@ scrollTop.addEventListener('click',()=>{
         behavior:"smooth"
     })
 })
-let landingDots = document.querySelectorAll("span.background-dots span");
-landingDots.forEach(function(ele){
-    ele.onclick = function(){
-        landingDots.forEach(function(ele){
-            ele.classList.remove("active-dot");
-        });
-        this.classList.add("active-dot");
-    };
-});
+const landingDots = document.querySelectorAll("span.background-dots span");
+// sliding background
+let indexValue = 1;
+function btnSlide(e){showImg(indexValue = e)};
+function sideSlide(e){showImg(indexValue += e)};
+showImg(indexValue);
+function showImg(e){
+    const imgs = document.querySelectorAll('.backgrounds img');
+    if(e > imgs.length){indexValue = 1};
+    if(e < 1){indexValue = imgs.length};
+    for(let i = 0;i < imgs.length; i++){
+        imgs[i].style.display = 'none';
+        landingDots[i].classList.remove('active-dot');
+    }
+    imgs[indexValue-1].style.display = 'block';
+    landingDots[indexValue-1].classList.add('active-dot');
+}
 // show menu in mobile 
 burgerIcon.onclick = function(){
     // menuContent.style.top = "-100%"?menuContent.style.top = "14 %":menuContent.style.top = "-100%";
