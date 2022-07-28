@@ -20,22 +20,21 @@ body{
 }
 @media (min-width:768px) {
     .container{
-        width: 750px;
+        width: 90%;
     }
 }
 @media (min-width:991px) {
     .container{
-        width: 970px;
+        width: 70%;
     }
 }
 @media (min-width:1200px) {
     .container{
-        width: 1170px;
+        width: 60%;
     }
 }
 section{
     padding: 50px;
-    height: 100vh;
 }
 .main-heading{
     text-align: center;
@@ -107,22 +106,24 @@ section{
 .swipe .backgrounds{
     width: 100%;
     height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    transition: var(--main-trans);
 }
 .swipe .backgrounds img{
     width: 100%;
     height: 100%;
-    background-size: cover;
+    transition: var(--main-trans);
 }
 @media (max-width:1400px) {
+    .swipe .backgrounds{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     .swipe .backgrounds img{
         width: -moz-fit-content;
         width: fit-content;
     }
 }
-
 .fixed-header{
     background-color: transparent;
     width: 100%;
@@ -135,13 +136,11 @@ section{
     transition: var(--main-trans);
 }
 header{
-    position: fixed;
-    left: 50%;
-    transform: translateX(-50%);
     display: flex;
     align-items: center;
     justify-content: space-between;
     z-index: 10 ;
+    position: relative;
 }
 header::before{
     content: "";
@@ -151,7 +150,6 @@ header::before{
     opacity: 0.3;
     position: absolute;
     bottom: -25px;
-    left: 15px;
 }
 header .logo{
     flex: 1;
@@ -300,17 +298,7 @@ span.search-icon:hover i {
         display: block;
     }
     header nav ul{
-        top: -100%;
-        position: fixed;
-        flex-direction: column;
-        width: 100%;
-        margin: auto;
-        z-index: 3;
-        text-align: center;
-        left: 0;
-        transition:0.5s;
-        background-color:rgba(0, 0, 0, 0.5);
-        padding: 30px;
+        display: none;
     }
     header nav ul li:before{
         display: none;
