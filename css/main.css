@@ -78,9 +78,9 @@ section{
 /* E Components */
 /* Vars */
 :root{
-    --trans-color:#00c5fc7c;
+    --trans-color:#0080a37c;
     --main-color:#00c7fc;
-    --main-trans:0.3s;
+    --main-trans:all 0.3s;
 }
 /* E Vars */
 /* Landing */
@@ -439,12 +439,14 @@ span.search-icon:hover i {
     display: grid;
     grid-template-columns: repeat(auto-fill,minmax(450px,1fr));
     justify-content: center;
+    align-items: center;
+    align-content: center;
     margin: auto;
 }
 .portfolio-images .image-card{
     position: relative;
     overflow: hidden;
-    transition: all var(--main-trans);
+    transition: var(--main-trans);
     cursor: pointer;
     height: auto;
 }
@@ -458,7 +460,7 @@ span.search-icon:hover i {
     width: 100%;
     padding: 10px 50px 15px;
     bottom: -100%;
-    transition: all var(--main-trans);
+    transition: var(--main-trans);
 }
 .portfolio-images .image-card .text h3{
     margin-bottom: 15px;
