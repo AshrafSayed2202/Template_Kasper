@@ -34,7 +34,7 @@ body{
     }
 }
 section{
-    padding: 50px;
+    padding: 50px 0px;
 }
 .main-heading{
     text-align: center;
@@ -80,7 +80,7 @@ section{
 :root{
     --trans-color:#00c5fc7c;
     --main-color:#00c7fc;
-    --main-trans:0.2s;
+    --main-trans:0.3s;
 }
 /* E Vars */
 /* Landing */
@@ -412,3 +412,84 @@ span.search-icon:hover i {
     margin-right: 20px;
 }
 /* end design */
+/* start portfolio */
+.portfolio-categ{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+}
+.portfolio-categ li{
+    padding: 10px 20px;
+    transition: var(--main-trans);
+    cursor: pointer;
+}
+.portfolio-categ li:hover{
+    background-color: var(--trans-color);
+    color: #eee;
+}
+.portfolio-categ li.active-categ{
+    background-color: var(--main-color);
+    color: white;
+}
+.portfolio-images{
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(450px,1fr));
+    justify-content: center;
+    margin: auto;
+}
+.portfolio-images .image-card{
+    position: relative;
+    overflow: hidden;
+    transition: all var(--main-trans);
+    cursor: pointer;
+    height: auto;
+}
+.portfolio-images .image-card img{
+    max-width: 100%;
+    transition: var(--main-trans);
+}
+.portfolio-images .image-card .text{
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    padding: 10px 50px 15px;
+    bottom: -100%;
+    transition: all var(--main-trans);
+}
+.portfolio-images .image-card .text h3{
+    margin-bottom: 15px;
+    text-transform: capitalize;
+    font-weight: 400;
+}
+.portfolio-images .image-card .text p{
+    text-transform: capitalize;
+    color: var(--main-color);
+}
+.portfolio-images .image-card:hover img{
+    transform: rotate(7deg) scale(1.2);
+}
+.portfolio-images .image-card:hover .text{
+    bottom: 0;
+}
+button.show-more{
+    background-color: var(--main-color);
+    padding: 15px;
+    width: 200px;
+    letter-spacing: 3px;
+    color: white;
+    font-weight: bold;
+    font-size: large;
+    border: none;
+    text-transform: uppercase;
+    margin: 40px auto;
+    display: block;
+    cursor: pointer;transition: var(--main-trans);
+}
+button.show-more:hover{
+    background-color: #0088ad;
+}
+/* end portfolio */
