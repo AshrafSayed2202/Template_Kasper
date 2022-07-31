@@ -78,30 +78,6 @@ const showMoreBtn = document.querySelector('button.show-more');
 for(let i = 8;i<portfolioCards.length;i++){
     portfolioCards[i].style.display = 'none';
 }
-
-
-portfolioList.forEach((e)=>{
-    e.addEventListener('click',()=>{
-        showMoreBtn.disabled = true;
-        portfolioList.forEach((i)=>{
-            i.classList.remove('active-categ');
-        });
-        e.classList.add('active-categ')
-        portfolioCards.forEach((j)=>{
-            if(e.innerHTML == j.children[1].children[1].innerHTML){
-                j.style.display = 'block';
-            }else{
-                j.style.display = 'none';
-            }
-            if(e.innerHTML == 'all'){
-                showMoreBtn.disabled = false;
-                for(let i=0;i<8;i++){
-                    portfolioCards[i].style.display = 'block';
-                }
-            }
-        })
-    })
-})
 // upload card
 let lastCard = portfolioCards[portfolioCards.length -1];
 
@@ -145,6 +121,27 @@ function uploadimage(){
     cardCategorySelect.value ='';
     cardImageUrl.value ='';
 }
+// filter portfolio category
+portfolioList.forEach((e)=>{
+    e.addEventListener('click',()=>{
+        showMoreBtn.disabled = true;
+        portfolioList.forEach((i)=>{
+            i.classList.remove('active-categ');
+        });
+        e.classList.add('active-categ')
+        portfolioCards.forEach((j)=>{
+            if(e.innerHTML == j.children[1].children[1].innerHTML){
+                j.style.display = 'block';
+            }else{
+                j.style.display = 'none';
+            }
+            if(e.innerHTML == 'all'){
+                showMoreBtn.disabled = false;
+                showMoreAction();
+            }
+        })
+    })
+})
 // show more btn
 showMoreBtn.addEventListener('click',showMoreAction);
     function showMoreAction(){

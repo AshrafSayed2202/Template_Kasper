@@ -34,7 +34,7 @@ body{
     }
 }
 section{
-    padding: 50px 0px;
+    margin-bottom: 150px;
 }
 .main-heading{
     text-align: center;
@@ -487,7 +487,7 @@ button.show-more{
     font-size: large;
     border: none;
     text-transform: uppercase;
-    margin: 40px auto;
+    margin: 40px auto 100px;
     display: block;
     cursor: pointer;transition: var(--main-trans);
     border-top-right-radius: 25px;
@@ -519,6 +519,7 @@ button.show-more:hover{
 }
 .add-image:hover{
     background-color: #0088ad;
+    border-bottom-left-radius: 0px;
 }
 #adding-container{
     background-color: rgba(0, 0, 0, 0.5);
@@ -611,3 +612,44 @@ button.show-more:hover{
     background-color: var(--trans-color);
 }
 /* end portfolio */
+/* Video */
+.video{
+    position: relative;
+}
+.video video{
+    width: 100%;
+}
+.video .text{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--trans-color);
+    width: 100%;
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+.video .text h3{
+    text-transform: uppercase;
+    margin: 20px 0px;
+}
+.video .text p{
+    text-transform: capitalize;
+    margin-bottom: 15px;
+
+}
+.video .text button{
+    background-color: rgb(0, 0, 0);
+    color: white;
+    padding: 12px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    transition: var(--main-trans);
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+.video .text button:hover{
+    background-color: var(--main-color);
+    border-radius: 0;
+}
