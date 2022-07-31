@@ -77,20 +77,8 @@ const showMoreBtn = document.querySelector('button.show-more');
 for(let i = 8;i<portfolioCards.length;i++){
     portfolioCards[i].style.display = 'none';
 }
-showMoreBtn.addEventListener('click',showMoreAction);
-function showMoreAction(){
-    if(showMoreBtn.innerHTML == 'more'){
-        showMoreBtn.innerHTML = 'less'
-        for(let i = 0;i<portfolioCards.length;i++){
-            portfolioCards[i].style.display = 'block';
-        }
-    }else{
-        showMoreBtn.innerHTML = 'more'
-        for(let i = 8;i<portfolioCards.length;i++){
-            portfolioCards[i].style.display = 'none';
-        }
-    }
-}
+
+
 portfolioList.forEach((e)=>{
     e.addEventListener('click',()=>{
         showMoreBtn.disabled = true;
@@ -145,4 +133,22 @@ function uploadimage(){
     cardsContainer.appendChild(card);
     // make the addnew btn the last one 
     cardsContainer.appendChild(lastCard);
+    // 
+    portfolioCards = document.querySelectorAll('.portfolio-images .image-card');
 }
+showMoreBtn.addEventListener('click',showMoreAction);
+    function showMoreAction(){
+        if(showMoreBtn.innerHTML == 'more'){
+            showMoreBtn.innerHTML = 'less'
+            console.log(portfolioCards)
+            for(let i = 0;i<portfolioCards.length;i++){
+                portfolioCards[i].style.display = 'block';
+            }
+        }else{
+            showMoreBtn.innerHTML = 'more'
+            console.log(portfolioCards)
+            for(let i = 8;i<portfolioCards.length;i++){
+                portfolioCards[i].style.display = 'none';
+            }
+        }
+    }
