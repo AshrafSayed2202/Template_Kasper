@@ -32,7 +32,7 @@ onscroll = function(){
     }
     window.scrollY >= sections[0].offsetHeight * 0.85? scrollTop.style.right = "4%" : scrollTop.style.right = "-10%";
     window.scrollY >= sections[0].offsetHeight * 0.85? scrollTop.style.opacity = "1" : scrollTop.style.opacity = "0";
-    window.scrollY >= sections[0].offsetHeight * 0.75? fixedHeader.style.backgroundColor = "var(--trans-color)" : fixedHeader.style.backgroundColor = "";
+    window.scrollY >= sections[0].offsetHeight * 0.75? fixedHeader.style.backgroundColor = "#007685bd" : fixedHeader.style.backgroundColor = "";
 }
 for(let i = 0;i < navList.length;i++){
     navList[i].onclick = function(){
@@ -112,7 +112,7 @@ console.log(cardNameInput)
 const submitUplaod = document.getElementById('submit-upload');
 submitUplaod.addEventListener('click',uploadimage);
 function uploadimage(){
-    if(cardNameInput.value == ''||cardImageUrl.cardCategorySelect == ''||cardImageUrl.value == ''){
+    if(cardNameInput.value == ''||cardCategorySelect.value == ''||cardImageUrl.value == ''){
         cardNameInput.focus();
         return false;
     }
@@ -140,6 +140,9 @@ function uploadimage(){
     // reset the cards number
     portfolioCards = document.querySelectorAll('.portfolio-images .image-card');
     closeAddingCardForm()
+    cardNameInput.value ='';
+    cardCategorySelect.value ='';
+    cardImageUrl.value ='';
 }
 // show more btn
 showMoreBtn.addEventListener('click',showMoreAction);

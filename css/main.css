@@ -490,9 +490,13 @@ button.show-more{
     margin: 40px auto;
     display: block;
     cursor: pointer;transition: var(--main-trans);
+    border-top-right-radius: 25px;
+    border-bottom-left-radius: 25px;
 }
 button.show-more:hover{
     background-color: #0088ad;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
 }
 .add-image{
     color: white;
@@ -576,12 +580,19 @@ button.show-more:hover{
     color: green;
     display: none;
 }
+#adding select{
+    text-transform: uppercase;
+}
+#adding select option{
+    text-transform: capitalize;
+}
 #adding input,
 #adding select{
     border-radius: 40px;
     padding: 15px;
     border: none;
     background-color: #eee;
+    width: 80%;
 }
 #submit-upload{
     padding: 15px;
