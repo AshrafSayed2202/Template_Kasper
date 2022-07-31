@@ -23,7 +23,8 @@ function removeActive(){
     })
 }
 // Events
-onscroll = function(){
+window.addEventListener('scroll',activeOnScroll)
+function activeOnScroll(){
     for(let i=0;i<sections.length;i++){
         if(window.scrollY>=sections[i].offsetTop - (sections[i].offsetHeight * 0.35)){
             removeActive();
@@ -108,7 +109,7 @@ const cardNameInput = document.getElementById('card-name');
 const cardCategorySelect = document.getElementById('category-select');
 const cardImageUrl = document.getElementById('image-url');
 const cardsContainer = document.querySelector('.portfolio-images')
-console.log(cardNameInput)
+
 const submitUplaod = document.getElementById('submit-upload');
 submitUplaod.addEventListener('click',uploadimage);
 function uploadimage(){
@@ -184,7 +185,7 @@ function disabelScroll(){
     }
 }
 function enableScroll(){
-    window.onscroll = function(){};
+    window.onscroll = activeOnScroll()
 }
 // checked or Xmark 
 cardNameInput.onblur = ()=>{
