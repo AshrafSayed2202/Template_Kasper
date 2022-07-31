@@ -30,7 +30,8 @@ onscroll = function(){
             navList[i].classList.add('active-nav')
         }
     }
-    window.scrollY >= sections[0].offsetHeight * 0.85? scrollTop.style.right = "4%" : scrollTop.style.right = "-30%";
+    window.scrollY >= sections[0].offsetHeight * 0.85? scrollTop.style.right = "4%" : scrollTop.style.right = "-10%";
+    window.scrollY >= sections[0].offsetHeight * 0.85? scrollTop.style.opacity = "1" : scrollTop.style.opacity = "0";
     window.scrollY >= sections[0].offsetHeight * 0.75? fixedHeader.style.backgroundColor = "var(--trans-color)" : fixedHeader.style.backgroundColor = "";
 }
 for(let i = 0;i < navList.length;i++){
@@ -71,15 +72,16 @@ showImg(indexValue)
 },5000)
 // Portfolio
 const portfolioList = document.querySelectorAll('.portfolio-categ li');
-const portfolioCards = document.querySelectorAll('.portfolio-images .image-card');
+let portfolioCards = document.querySelectorAll('.portfolio-images .image-card');
 const showMoreBtn = document.querySelector('button.show-more');
 for(let i = 8;i<portfolioCards.length;i++){
     portfolioCards[i].style.display = 'none';
 }
-showMoreBtn.addEventListener('click',()=>{
+showMoreBtn.addEventListener('click',showMoreAction);
+function showMoreAction(){
     if(showMoreBtn.innerHTML == 'more'){
         showMoreBtn.innerHTML = 'less'
-        for(let i = 8;i<portfolioCards.length;i++){
+        for(let i = 0;i<portfolioCards.length;i++){
             portfolioCards[i].style.display = 'block';
         }
     }else{
@@ -88,8 +90,7 @@ showMoreBtn.addEventListener('click',()=>{
             portfolioCards[i].style.display = 'none';
         }
     }
-    
-})
+}
 portfolioList.forEach((e)=>{
     e.addEventListener('click',()=>{
         showMoreBtn.disabled = true;
@@ -112,3 +113,36 @@ portfolioList.forEach((e)=>{
         })
     })
 })
+// upload card
+let lastCard = portfolioCards[portfolioCards.length -1];
+
+const cardNameInput = document.getElementById('card-name');
+const cardCategorySelect = document.getElementById('category-select');
+const cardImageUrl = document.getElementById('image-url');
+const cardsContainer = document.querySelector('.portfolio-images')
+
+const submitUplaod = document.getElementById('submit-upload');
+submitUplaod.addEventListener('click',uploadimage);
+function uploadimage(){
+    // create image
+    let cardImage = document.createElement('img');
+    cardImage.src = cardImageUrl.value;
+    // create text
+    let cardName = document.createElement('h3');
+    cardName.innerHTML = cardNameInput.value;
+    let cardCategory = document.createElement('p');
+    cardCategory.innerHTML = cardCategorySelect.value;
+    // create text container
+    let cardText = document.createElement('div');
+    cardText.classList.add('text');
+    cardText.appendChild(cardName);
+    cardText.appendChild(cardCategory);
+    // create the card
+    let card = document.createElement('div');
+    card.classList.add('image-card');
+    card.appendChild(cardImage);
+    card.appendChild(cardText);
+    cardsContainer.appendChild(card);
+    // make the addnew btn the last one 
+    cardsContainer.appendChild(lastCard);
+}

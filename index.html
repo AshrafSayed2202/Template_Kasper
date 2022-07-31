@@ -193,8 +193,32 @@
                     <p>web</p>
                 </div>
             </div>
+            <div class="image-card">
+                <div id="add-image">
+                    <span class="add-image">+</span>
+                    <div class="text">
+                        <h3>add new card?</h3>
+                        <p>click here</p>
+                    </div>
+                </div>
+            </div>
         </div>
         <button type="submit" class="show-more">more</button>
+        <div id="adding">
+            <label for="card-name">the card name</label>
+            <input id="card-name" name="name"type="text" placeholder="Enter your Card name here">
+            <label for="category-select">select the card category</label>
+            <select name="select" id="category-select">
+                <option value="">select the card category</option>
+                <option value="app">app</option>
+                <option value="photography">photography</option>
+                <option value="web">web</option>
+                <option value="print">print</option>
+            </select>
+            <label for="image-url">uplaod your card image</label>
+            <input type="url" id="image-url" name="image-upload" accept="image/*" placeholder="paste your card image URL here">
+            <input type="submit" name="" id="submit-upload">
+        </div>
     </section>
     <section data-nav="about">
         <div class="container">
