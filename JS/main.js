@@ -108,10 +108,14 @@ const cardNameInput = document.getElementById('card-name');
 const cardCategorySelect = document.getElementById('category-select');
 const cardImageUrl = document.getElementById('image-url');
 const cardsContainer = document.querySelector('.portfolio-images')
-
+console.log(cardNameInput)
 const submitUplaod = document.getElementById('submit-upload');
 submitUplaod.addEventListener('click',uploadimage);
 function uploadimage(){
+    if(cardNameInput.value == ''||cardImageUrl.cardCategorySelect == ''||cardImageUrl.value == ''){
+        cardNameInput.focus();
+        return false;
+    }
     // create image
     let cardImage = document.createElement('img');
     cardImage.src = cardImageUrl.value;
@@ -133,22 +137,77 @@ function uploadimage(){
     cardsContainer.appendChild(card);
     // make the addnew btn the last one 
     cardsContainer.appendChild(lastCard);
-    // 
+    // reset the cards number
     portfolioCards = document.querySelectorAll('.portfolio-images .image-card');
+    closeAddingCardForm()
 }
+// show more btn
 showMoreBtn.addEventListener('click',showMoreAction);
     function showMoreAction(){
         if(showMoreBtn.innerHTML == 'more'){
             showMoreBtn.innerHTML = 'less'
-            console.log(portfolioCards)
             for(let i = 0;i<portfolioCards.length;i++){
                 portfolioCards[i].style.display = 'block';
             }
         }else{
             showMoreBtn.innerHTML = 'more'
-            console.log(portfolioCards)
             for(let i = 8;i<portfolioCards.length;i++){
                 portfolioCards[i].style.display = 'none';
             }
         }
     }
+// show and hide adding card form
+const addCardBtnOpen = document.querySelector('.add-image');
+const addCardBtnClose = document.querySelector('.close-adding');
+const addCardForm = document.getElementById('adding-container')
+
+addCardBtnOpen.addEventListener('click',openAddingCardForm);
+function openAddingCardForm(){
+    addCardForm.style.pointerEvents = 'auto'
+    addCardForm.style.opacity = '1'
+    disabelScroll();
+}
+addCardBtnClose.addEventListener('click',closeAddingCardForm);
+function closeAddingCardForm(){
+    addCardForm.style.pointerEvents = 'none'
+    addCardForm.style.opacity = '0'
+    enableScroll();
+}
+function disabelScroll(){
+    let topScroll = window.pageYOffset;
+    let leftScroll = window.pageXOffset;
+    window.onscroll = ()=>{
+        window.scrollTo(leftScroll,topScroll);
+    }
+}
+function enableScroll(){
+    window.onscroll = function(){};
+}
+// checked or Xmark 
+cardNameInput.onblur = ()=>{
+    if(cardNameInput.value == ''){
+        cardNameInput.previousElementSibling.children[1].style.display = 'none';
+        cardNameInput.previousElementSibling.children[0].style.display = 'block';
+    }else{
+        cardNameInput.previousElementSibling.children[0].style.display = 'none';
+        cardNameInput.previousElementSibling.children[1].style.display = 'block';
+    }
+}
+cardImageUrl.onblur = ()=>{
+    if(cardImageUrl.value == ''){
+        cardImageUrl.previousElementSibling.children[1].style.display = 'none';
+        cardImageUrl.previousElementSibling.children[0].style.display = 'block';
+    }else{
+        cardImageUrl.previousElementSibling.children[0].style.display = 'none';
+        cardImageUrl.previousElementSibling.children[1].style.display = 'block';
+    }
+}
+cardCategorySelect.onchange =()=>{
+    if(cardCategorySelect.value == ''){
+        cardCategorySelect.previousElementSibling.children[1].style.display = 'none';
+        cardCategorySelect.previousElementSibling.children[0].style.display = 'block';
+    }else{
+        cardCategorySelect.previousElementSibling.children[0].style.display = 'none';
+        cardCategorySelect.previousElementSibling.children[1].style.display = 'block';
+    }
+}
