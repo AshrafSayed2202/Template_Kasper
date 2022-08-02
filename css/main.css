@@ -16,7 +16,7 @@ body{
     margin-right: auto;
     padding-left: 15px;
     padding-right: 15px;
-    min-width: 500px;
+    width: 100%;
 }
 @media (min-width:768px) {
     .container{
@@ -293,12 +293,41 @@ span.search-icon:hover i {
     cursor: pointer;
     z-index: 5;
 }
+#close-menu{
+    display: none;
+    color: white;
+    font-size: 25px;
+    position: absolute;
+    top: 4%;
+    left: 5%;
+    padding: 10px;
+}
 @media (max-width:991px) {
+    #close-menu{
+        display: block;
+    }
     #mobile-menu-icon{
         display: block;
     }
     header nav ul{
-        display: none;
+        transform: translateX(100%);
+        flex-direction: column;
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        text-align: center;
+        margin: 0;
+        background-color: rgba(0,0,0,0.8);
+        padding-top: 50px;
+        z-index: 5;
+        gap: 25px;
+    }
+    header nav ul li{
+        padding: 15px;
+        width: 50%;
+        margin: 0 auto;
     }
     header nav ul li:before{
         display: none;
@@ -351,11 +380,16 @@ span.search-icon:hover i {
     grid-row-gap: 40px;
     margin-bottom: 50px;
 }
+@media (max-width:500px) {
+    .services-container{
+        grid-template-columns: repeat(auto-fill,minmax(100%,1fr));
+    }
+}
 .srv-box{
     display: flex;
+    gap: 40px;
 }
 .srv-box i{
-    margin-right: 50px;
     font-size: 50px;
     color: #333;
 }
@@ -366,6 +400,14 @@ span.search-icon:hover i {
 .srv-box p{
     color: #777;
     line-height: 2;
+}
+@media (max-width:768px) {
+    .srv-box{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
 }
 /* end services */
 /* start design */
@@ -405,6 +447,14 @@ span.search-icon:hover i {
 .design .text ul li i{
     margin-right: 20px;
 }
+@media (max-width:900px) {
+    .design .img{
+        display: none;
+    }
+    .design .text{
+        margin: 10% 0;
+    }
+}
 /* end design */
 /* start portfolio */
 .portfolio-categ{
@@ -413,7 +463,14 @@ span.search-icon:hover i {
     justify-content: center;
     gap: 25px;
     text-transform: uppercase;
-    margin-bottom: 50px;
+    margin: 0px auto 50px;
+    text-align: center;
+}
+@media (max-width:600px) {
+    .portfolio-categ{
+        display: grid;
+        grid-template-columns: repeat(auto-fill,minmax(50%,1fr));
+    }
 }
 .portfolio-categ li{
     padding: 10px 20px;
@@ -436,6 +493,11 @@ span.search-icon:hover i {
     align-items: center;
     align-content: center;
     margin: auto;
+}
+@media (max-width:500px) {
+    .portfolio-images{
+        grid-template-columns: repeat(auto-fill,minmax(100%,1fr));
+    }
 }
 .portfolio-images .image-card{
     position: relative;
@@ -653,5 +715,10 @@ button.show-more:hover{
     margin: auto;
     transform: translateX(-18%);
     position: relative;
+}
+@media (max-width:740px) {
+    .about-screens-img{
+        display: none;
+    }
 }
 /* End About */

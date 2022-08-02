@@ -4,6 +4,17 @@ const menuContent = document.querySelector("header nav ul");
 const sections = document.querySelectorAll('section');
 const scrollTop = document.querySelector('.scroll-to-top')
 const fixedHeader = document.querySelector('.fixed-header');
+const xMardMenu = document.getElementById('close-menu');
+// show menu on mobile
+burgerIcon.addEventListener('click',showMenuOnMobile);
+function showMenuOnMobile(){
+    menuContent.style.transition = 'var(--main-trans)'
+    menuContent.style.transform = 'translateX(0%)'
+};
+xMardMenu.addEventListener('click',hideMenuOnMobile);
+function hideMenuOnMobile(){
+    menuContent.style.transform = 'translateX(100%)'
+};
 // Dynamicly creat nav
 function creatNavs(){
     sections.forEach((e)=>{
@@ -42,7 +53,18 @@ for(let i = 0;i < navList.length;i++){
             left:0,
             behavior: "smooth"
         })
+        if(window.innerWidth <= 991){
+            hideMenuOnMobile();
+        }
     };
+};
+window.onresize = function(){
+    console.log(window.innerWidth)
+    if(window.innerWidth > 991){
+        menuContent.style.transform = 'translateX(0%)'
+    }else{
+        menuContent.style.transform = 'translateX(100%)'
+    }
 };
 scrollTop.addEventListener('click',()=>{
     window.scrollTo({
