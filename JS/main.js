@@ -10,10 +10,12 @@ burgerIcon.addEventListener('click',showMenuOnMobile);
 function showMenuOnMobile(){
     menuContent.style.transition = 'var(--main-trans)'
     menuContent.style.transform = 'translateX(0%)'
+    disableScroll()
 };
 xMardMenu.addEventListener('click',hideMenuOnMobile);
 function hideMenuOnMobile(){
     menuContent.style.transform = 'translateX(100%)'
+    enableScroll();
 };
 // Dynamicly creat nav
 function creatNavs(){
@@ -45,6 +47,9 @@ function activeOnScroll(){
     window.scrollY >= sections[0].offsetHeight * 0.85? scrollTop.style.right = "4%" : scrollTop.style.right = "-10%";
     window.scrollY >= sections[0].offsetHeight * 0.85? scrollTop.style.opacity = "1" : scrollTop.style.opacity = "0";
     window.scrollY >= sections[0].offsetHeight * 0.75? fixedHeader.style.backgroundColor = "rgb(0 69 78 / 65%)" : fixedHeader.style.backgroundColor = "";
+    // states counter 
+    window.scrollY >= document.querySelector('section[data-nav="about"]').offsetTop? increaseStates():false;
+    window.scrollY >= document.querySelector('.states').offsetTop - 300? increaseSkills():false;
 }
 for(let i = 0;i < navList.length;i++){
     navList[i].onclick = function(){
@@ -187,7 +192,7 @@ addCardBtnOpen.addEventListener('click',openAddingCardForm);
 function openAddingCardForm(){
     addCardForm.style.pointerEvents = 'auto'
     addCardForm.style.opacity = '1'
-    disabelScroll();
+    disableScroll();
     fixedHeader.style.transform = 'translateY(-100%)'
     scrollTop.style.right = '-10%'
 }
@@ -199,7 +204,7 @@ function closeAddingCardForm(){
     fixedHeader.style.transform = 'translateY(0%)'
     scrollTop.style.right = '4%'
 }
-function disabelScroll(){
+function disableScroll(){
     let topScroll = window.pageYOffset;
     let leftScroll = window.pageXOffset;
     window.onscroll = ()=>{
@@ -236,4 +241,52 @@ cardCategorySelect.onchange =()=>{
         cardCategorySelect.previousElementSibling.children[0].style.display = 'none';
         cardCategorySelect.previousElementSibling.children[1].style.display = 'block';
     }
+}
+// increase states numbers 
+let startedCountingStates = false;
+const counter = document.querySelectorAll('.states .counter');
+function increaseStates(){
+    if(!startedCountingStates){
+        counter.forEach((e)=>{
+            let goal = e.dataset.goal;
+            e.textContent++
+            let counting = setInterval(()=>{
+                e.dataset.goal>1000? e.textContent =parseInt(e.textContent)+5:e.textContent++;
+                if(e.textContent >= parseInt(goal)){
+                    clearInterval(counting)
+                }   
+            },1500/goal);
+        })
+        startedCountingStates = true;
+    }
+}
+// increase states numbers and width 
+const progressBars = document.querySelectorAll('span.progress');
+let startedCountingSkills = false;
+function increaseSkills(){
+    if(!startedCountingSkills){
+        progressBars.forEach((e)=>{
+            e.style.width = e.dataset.width+'%'
+            let goal = e.children[0].dataset.perc;
+            let counting = setInterval(()=>{
+                e.children[0].textContent++
+                if(e.children[0].textContent == goal){
+                    clearInterval(counting);
+                }
+            },2000/goal)
+        })
+        startedCountingSkills = true;
+    }
+}
+let testimonialsMenuDots = document.querySelectorAll('.test-side .dots span');
+testimonialsMenuDots.forEach((e)=>{
+    e.addEventListener('click',()=>{
+        testimonialsMenuDots.forEach((i)=>{
+            i.classList.remove('active');
+        })
+        e.classList.add('active')
+    })
+})
+function slideTestCards(e){
+    document.querySelector('.testers-container').style.left = `${e}%`;
 }
