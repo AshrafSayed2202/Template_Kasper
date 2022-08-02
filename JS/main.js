@@ -3,7 +3,7 @@ const burgerIcon = document.getElementById("mobile-menu-icon");
 const menuContent = document.querySelector("header nav ul");
 const sections = document.querySelectorAll('section');
 const scrollTop = document.querySelector('.scroll-to-top')
-const fixedHeader = document.querySelector('.fixed-header');
+const fixedHeader = document.querySelector('.fixed-header .container');
 const xMardMenu = document.getElementById('close-menu');
 // show menu on mobile
 burgerIcon.addEventListener('click',showMenuOnMobile);
@@ -44,7 +44,7 @@ function activeOnScroll(){
     }
     window.scrollY >= sections[0].offsetHeight * 0.85? scrollTop.style.right = "4%" : scrollTop.style.right = "-10%";
     window.scrollY >= sections[0].offsetHeight * 0.85? scrollTop.style.opacity = "1" : scrollTop.style.opacity = "0";
-    window.scrollY >= sections[0].offsetHeight * 0.75? fixedHeader.style.backgroundColor = "#999999ee" : fixedHeader.style.backgroundColor = "";
+    window.scrollY >= sections[0].offsetHeight * 0.75? fixedHeader.style.backgroundColor = "rgb(0 69 78 / 65%)" : fixedHeader.style.backgroundColor = "";
 }
 for(let i = 0;i < navList.length;i++){
     navList[i].onclick = function(){
@@ -189,7 +189,7 @@ function openAddingCardForm(){
     addCardForm.style.pointerEvents = 'auto'
     addCardForm.style.opacity = '1'
     disabelScroll();
-    fixedHeader.style.top = '-100%'
+    fixedHeader.style.transform = 'translateY(-100%)'
     scrollTop.style.right = '-10%'
 }
 addCardBtnClose.addEventListener('click',closeAddingCardForm);
@@ -197,7 +197,7 @@ function closeAddingCardForm(){
     addCardForm.style.pointerEvents = 'none'
     addCardForm.style.opacity = '0'
     enableScroll();
-    fixedHeader.style.top = '0%'
+    fixedHeader.style.transform = 'translateY(0%)'
     scrollTop.style.right = '4%'
 }
 function disabelScroll(){
