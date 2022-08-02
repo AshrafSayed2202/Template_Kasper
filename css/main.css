@@ -349,8 +349,8 @@ span.search-icon:hover i {
 .scroll-to-top{
     background-color: var(--trans-color);
     color: #eee;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     position: fixed;
     z-index: 5;
     bottom: 5%;

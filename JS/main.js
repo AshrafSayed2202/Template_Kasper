@@ -59,7 +59,6 @@ for(let i = 0;i < navList.length;i++){
     };
 };
 window.onresize = function(){
-    console.log(window.innerWidth)
     if(window.innerWidth > 991){
         menuContent.style.transform = 'translateX(0%)'
     }else{
