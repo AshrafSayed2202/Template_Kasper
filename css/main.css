@@ -859,7 +859,7 @@ button.show-more:hover{
     height: 100%;
     width: 0%;
     display: block;
-    transition: 2s linear;
+    transition: 2s;
     position: relative;
     border-radius: 50px;
 }
