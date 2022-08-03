@@ -210,9 +210,8 @@ function closeAddingCardForm(){
 }
 function disableScroll(){
     let topScroll = window.pageYOffset;
-    let leftScroll = window.pageXOffset;
     window.onscroll = ()=>{
-        window.scrollTo(leftScroll,topScroll);
+        window.scrollTo(0,topScroll);
     }
 }
 function enableScroll(){
