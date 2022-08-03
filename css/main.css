@@ -916,11 +916,12 @@ button.show-more:disabled{
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 .person{
     display: flex;
     gap: 40px;
+    position: relative;
 }
 .person img{
     width: 100px;
@@ -931,19 +932,29 @@ button.show-more:disabled{
     line-height: 2;
     font-size: 14px;
     border-bottom: 1px solid black;
+    padding-bottom: 15px;
 }
 .person .person-text span{
     display: block;
     text-align: end;
     text-transform: capitalize;
     opacity: 0.7;
-    padding-bottom: 15px;
 }
 .person .person-text span::first-letter{
     color: var(--main-color);
     font-size: 18px;
     font-weight: bolder;
     letter-spacing: 1px;
+}
+@media (max-width:400px) {
+    .window{
+        height: 400px;
+    }
+    .person .person-text span{
+        position: absolute;
+        left: 0%;
+        bottom: -15px;
+    }
 }
 .test-side .dots{
     display: flex;
