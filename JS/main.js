@@ -79,9 +79,13 @@ scrollTop.addEventListener('click',()=>{
 const landingDots = document.querySelectorAll("span.background-dots span");
 // sliding background
 let leftValue = 0;
-function btnSlide(e){showImg(leftValue = e)};
+function btnSlide(e){
+    showImg(leftValue = e);
+};
 
-function sideSlide(e){showImg(leftValue += e)};
+function sideSlide(e){
+    showImg(leftValue += e);
+};
 
 function showImg(e){
     const imgs = document.querySelector('.backgrounds');
@@ -93,10 +97,10 @@ function showImg(e){
     }
     document.querySelector(`span.background-dots span[onclick="btnSlide(${leftValue})"]`).classList.add('active-dot');
 }
-setInterval(function(){
-leftValue += -100;
-showImg(leftValue)
-},5000)
+setInterval(()=>{
+    leftValue += -100;
+    showImg(leftValue)
+    },5000)
 // Portfolio
 const portfolioList = document.querySelectorAll('.portfolio-categ li');
 let portfolioCards = document.querySelectorAll('.portfolio-images .image-card');
@@ -289,4 +293,13 @@ testimonialsMenuDots.forEach((e)=>{
 })
 function slideTestCards(e){
     document.querySelector('.testers-container').style.left = `${e}%`;
+}
+
+document.querySelector('.subscribe .container form input[type="submit"]').onclick = function(e){e.preventDefault()};
+let mailInput = document.querySelector('.subscribe .container form input[type="email"]');
+mailInput.onfocus = function(){
+    mailInput.placeholder = "";
+}
+mailInput.onblur = function(){
+    mailInput.placeholder = "Your Email";
 }
