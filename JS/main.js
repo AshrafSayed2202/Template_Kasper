@@ -4,7 +4,7 @@ const menuContent = document.querySelector("header nav ul");
 const sections = document.querySelectorAll('section');
 const scrollTop = document.querySelector('.scroll-to-top')
 const fixedHeader = document.querySelector('.fixed-header .container');
-const xMardMenu = document.getElementById('close-menu');
+const closeArrowMenu = document.getElementById('close-menu');
 // show menu on mobile
 burgerIcon.addEventListener('click',showMenuOnMobile);
 function showMenuOnMobile(){
@@ -12,7 +12,7 @@ function showMenuOnMobile(){
     menuContent.style.transform = 'translateX(0%)'
     disableScroll()
 };
-xMardMenu.addEventListener('click',hideMenuOnMobile);
+closeArrowMenu.addEventListener('click',hideMenuOnMobile);
 function hideMenuOnMobile(){
     menuContent.style.transform = 'translateX(100%)'
     enableScroll();
@@ -66,8 +66,6 @@ for(let i = 0;i < navList.length;i++){
 window.onresize = function(){
     if(window.innerWidth > 991){
         menuContent.style.transform = 'translateX(0%)'
-    }else{
-        menuContent.style.transform = 'translateX(100%)'
     }
 };
 scrollTop.addEventListener('click',()=>{
