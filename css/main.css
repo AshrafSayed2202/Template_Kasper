@@ -564,8 +564,14 @@ button.show-more{
 }
 button.show-more:hover{
     background-color: #0088ad;
-    border-top-right-radius: 0px;
-    border-bottom-left-radius: 0px;
+    border-radius: 0;
+}
+button.show-more:disabled{
+    background-color: #eee;
+    color: #00000080;
+}button.show-more:disabled:hover{
+    border-top-right-radius: 25px;
+    border-bottom-left-radius: 25px;
 }
 .add-image{
     color: white;
