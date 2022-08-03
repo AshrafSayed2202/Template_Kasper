@@ -302,3 +302,7 @@ mailInput.onfocus = function(){
 mailInput.onblur = function(){
     mailInput.placeholder = "Your Email";
 }
+
+// copyright date 
+let d = new Date()
+document.querySelector('.date').innerHTML = d.getFullYear();
