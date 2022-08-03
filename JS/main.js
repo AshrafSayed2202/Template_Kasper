@@ -294,9 +294,8 @@ testimonialsMenuDots.forEach((e)=>{
 function slideTestCards(e){
     document.querySelector('.testers-container').style.left = `${e}%`;
 }
-
-document.querySelector('.subscribe .container form input[type="submit"]').onclick = function(e){e.preventDefault()};
 let mailInput = document.querySelector('.subscribe .container form input[type="email"]');
+console.log(mailInput)
 mailInput.onfocus = function(){
     mailInput.placeholder = "";
 }
