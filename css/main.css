@@ -139,17 +139,6 @@ section{
 .swipe .backgrounds .img:last-child{
     background-image: url(../media/landing3.jpg);
 }
-@media (max-width:1400px) {
-    .swipe .backgrounds{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .swipe .backgrounds .img{
-        /* width: -moz-fit-content; */
-        /* width: fit-content; */
-    }
-}
 .fixed-header{
     background-color: transparent;
     width: 100%;

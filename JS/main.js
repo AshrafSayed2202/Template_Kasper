@@ -97,7 +97,7 @@ setInterval(function(){
 leftValue += -100;
 showImg(leftValue)
 },5000)
-Portfolio
+// Portfolio
 const portfolioList = document.querySelectorAll('.portfolio-categ li');
 let portfolioCards = document.querySelectorAll('.portfolio-images .image-card');
 const showMoreBtn = document.querySelector('button.show-more');
