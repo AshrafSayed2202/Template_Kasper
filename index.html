@@ -19,11 +19,13 @@
 </head>
 <body>
     <section class="landing" data-nav="home">
-        <div class="swipe">
-            <div class="backgrounds">
-                <img src="media/landing1.jpg" alt="">
-                <img src="media/landing2.jpg" alt="">
-                <img src="media/landing3.jpg" alt="">
+        <div class="swipe-container">
+            <div class="swipe">
+                <div class="backgrounds">
+                    <div class="img"></div>
+                    <div class="img"></div>
+                    <div class="img"></div>
+                </div>
             </div>
         </div>
         <div class="fixed-header">
@@ -42,8 +44,8 @@
                 </header>
             </div>
         </div>
-        <i onclick="sideSlide(-1)" class="fa-solid fa-angle-left change-background left-arrow"></i>
-        <i onclick="sideSlide(1)" class="fa-solid fa-angle-right change-background right-arrow"></i>
+        <i onclick="sideSlide(100)" class="fa-solid fa-angle-left change-background left-arrow"></i>
+        <i onclick="sideSlide(-100)" class="fa-solid fa-angle-right change-background right-arrow"></i>
         <div class="landing-text">
             <div class="text-box">
                 <h1>hello world!<br>we are kasper,we make art.</h1>
@@ -51,9 +53,9 @@
             </div>
         </div>
         <span class="background-dots">
-            <span onclick="btnSlide(1)" class="active-dot"></span>
-            <span onclick="btnSlide(2)"></span>
-            <span onclick="btnSlide(3)"></span>
+            <span onclick="btnSlide(0)" class="active-dot"></span>
+            <span onclick="btnSlide(-100)"></span>
+            <span onclick="btnSlide(-200)"></span>
         </span>
     </section>
     <section class="services" data-nav="services">

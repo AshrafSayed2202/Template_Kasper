@@ -78,26 +78,26 @@ scrollTop.addEventListener('click',()=>{
 })
 const landingDots = document.querySelectorAll("span.background-dots span");
 // sliding background
-let indexValue = 1;
-function btnSlide(e){showImg(indexValue = e)};
-function sideSlide(e){showImg(indexValue += e)};
+let leftValue = 0;
+function btnSlide(e){showImg(leftValue = e)};
+
+function sideSlide(e){showImg(leftValue += e)};
 
 function showImg(e){
-    const imgs = document.querySelectorAll('.backgrounds img');
-    if(e > imgs.length){indexValue = 1};
-    if(e < 1){indexValue = imgs.length};
-    for(let i = 0;i < imgs.length; i++){
-        imgs[i].style.display = 'none';
+    const imgs = document.querySelector('.backgrounds');
+    if(leftValue>0){leftValue = -200};
+    if(leftValue<-200){leftValue = -0};
+    imgs.style.left = `${leftValue}%`;
+    for(let i = 0;i < landingDots.length; i++){
         landingDots[i].classList.remove('active-dot');
     }
-    imgs[indexValue-1].style.display = 'block';
-    landingDots[indexValue-1].classList.add('active-dot');
+    document.querySelector(`span.background-dots span[onclick="btnSlide(${leftValue})"]`).classList.add('active-dot');
 }
 setInterval(function(){
-indexValue += 1;
-showImg(indexValue)
+leftValue += -100;
+showImg(leftValue)
 },5000)
-// Portfolio
+Portfolio
 const portfolioList = document.querySelectorAll('.portfolio-categ li');
 let portfolioCards = document.querySelectorAll('.portfolio-images .image-card');
 const showMoreBtn = document.querySelector('button.show-more');

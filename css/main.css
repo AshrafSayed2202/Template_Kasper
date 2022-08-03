@@ -99,24 +99,45 @@ section{
     position: relative;
     height: 100vh;
 }
+.swipe-container{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+}
 .swipe{
     width: 100%;
     height: 100vh;
     overflow: hidden;
-    position: absolute;
+    position: relative;
     left: 0%;
     top: 0%;
     z-index: -1;
 }
 .swipe .backgrounds{
-    width: 100%;
+    width: 300%;
     height: 100%;
     transition: var(--main-trans);
+    position: absolute;
+    z-index: 20;
+    display: flex;
+    left: 0%;
 }
-.swipe .backgrounds img{
-    width: 100%;
+.swipe .backgrounds .img{
+    width: calc(100% / 3);
     height: 100%;
     transition: var(--main-trans);
+    background-size: cover;
+    background-position: center;
+}
+.swipe .backgrounds .img:first-child{
+    background-image: url(../media/landing1.jpg);
+}
+.swipe .backgrounds .img:nth-child(2){
+    background-image: url(../media/landing2.jpg);
+}
+.swipe .backgrounds .img:last-child{
+    background-image: url(../media/landing3.jpg);
 }
 @media (max-width:1400px) {
     .swipe .backgrounds{
@@ -124,9 +145,9 @@ section{
         justify-content: center;
         align-items: center;
     }
-    .swipe .backgrounds img{
-        width: -moz-fit-content;
-        width: fit-content;
+    .swipe .backgrounds .img{
+        /* width: -moz-fit-content; */
+        /* width: fit-content; */
     }
 }
 .fixed-header{
