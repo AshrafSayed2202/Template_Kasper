@@ -1228,4 +1228,12 @@ button.show-more:disabled{
     text-transform: capitalize;
     opacity: 0.7    ;
 }
+@media (max-width:767px) {
+    .contact-container{
+        flex-direction: column;
+    }
+    .contact-container .contact-methods{
+        flex-direction: row;
+    }
+}
 /* End Contact */
