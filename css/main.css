@@ -770,16 +770,18 @@ button.show-more:disabled{
     position: absolute;
 }
 .states .container{
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(24%,1fr));
     justify-content: center;
     flex-wrap: wrap;
     padding: 50px;
+    gap: 1%;
 }
 .states-card{
     z-index: 6;
     color: white;
     background-color: var(--trans-color);
-    flex-basis: 25%;
+    flex-basis: 24%;
     padding: 30px 0;
     text-align: center;
     display: flex;
@@ -789,13 +791,13 @@ button.show-more:disabled{
     user-select: none;
 }
 @media (max-width:991px) {
-    .states-card{
-        flex-basis: 50%;
+    .states .container{
+        grid-template-columns: repeat(auto-fill,minmax(49%,1fr));
     }
 }
 @media (max-width:768px) {
-    .states-card{
-        flex-basis: 100%;
+    .states .container{
+        grid-template-columns: repeat(auto-fill,minmax(80%,1fr));
     }
 }
 .states-card i{
@@ -928,7 +930,6 @@ button.show-more:disabled{
 .person .person-text{
     line-height: 2;
     font-size: 14px;
-    padding-bottom: 15px;
     border-bottom: 1px solid black;
 }
 .person .person-text span{
@@ -936,6 +937,7 @@ button.show-more:disabled{
     text-align: end;
     text-transform: capitalize;
     opacity: 0.7;
+    padding-bottom: 15px;
 }
 .person .person-text span::first-letter{
     color: var(--main-color);
