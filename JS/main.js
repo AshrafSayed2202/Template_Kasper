@@ -66,6 +66,8 @@ for(let i = 0;i < navList.length;i++){
 window.onresize = function(){
     if(window.innerWidth > 991){
         menuContent.style.transform = 'translateX(0%)'
+    }else{
+        hideMenuOnMobile()
     }
 };
 scrollTop.addEventListener('click',()=>{
@@ -76,13 +78,24 @@ scrollTop.addEventListener('click',()=>{
 })
 const landingDots = document.querySelectorAll("span.background-dots span");
 // sliding background
+let slideInterval = setInterval(slideIntervalFunc,5000);
+function slideIntervalFunc(){
+    leftValue += -100;
+    showImg(leftValue)
+}
+function resetSlideInterval(){
+    clearInterval(slideInterval);
+    slideInterval = setInterval(slideIntervalFunc,5000);
+}
 let leftValue = 0;
 function btnSlide(e){
     showImg(leftValue = e);
+    resetSlideInterval();
 };
 
 function sideSlide(e){
     showImg(leftValue += e);
+    resetSlideInterval();
 };
 
 function showImg(e){
@@ -95,10 +108,6 @@ function showImg(e){
     }
     document.querySelector(`span.background-dots span[onclick="btnSlide(${leftValue})"]`).classList.add('active-dot');
 }
-setInterval(()=>{
-    leftValue += -100;
-    showImg(leftValue)
-    },5000)
 // Portfolio
 const portfolioList = document.querySelectorAll('.portfolio-categ li');
 let portfolioCards = document.querySelectorAll('.portfolio-images .image-card');
