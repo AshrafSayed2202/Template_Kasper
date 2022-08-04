@@ -837,6 +837,7 @@ button.show-more:disabled{
 @media (max-width:991px) {
     .container.skills{
         gap: 100px;
+        flex-direction: column-reverse;
     }
     .container.skills>div{
         flex-basis: 100%;
@@ -891,8 +892,7 @@ button.show-more:disabled{
 .progress-perc::after{
     content: '%';
 }
-.test-side{
-    width: 50%;
+.test-side{ 
     position: relative;
 }
 .window{
